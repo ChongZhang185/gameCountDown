@@ -1,56 +1,40 @@
 {
-  "description": "项目配置文件",
+  "appid": "wxe3b92eba7ae9f716",
+  "compileType": "miniprogram",
+  "libVersion": "trial",
+  "isGameTourist": false,
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
   "setting": {
-    "urlCheck": false,
+    "coverView": true,
     "es6": true,
     "postcss": true,
     "minified": true,
-    "newFeature": true,
-    "uglifyFileName": false,
-    "uploadWithSourceMap": true,
-    "enhance": false,
-    "packNpmManually": false,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "localPlugins": false,
-    "condition": false,
-    "compileWorklet": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "minifyWXSS": true,
+    "localPlugins": false,
+    "condition": false,
+    "compileWorklet": false,
     "disableUseStrict": false,
     "minifyWXML": true,
     "useCompilerPlugins": false
   },
-  "compileType": "game",
-  "libVersion": "latest",
-  "appid": "wx19dcc54369e7c9dd",
-  "projectname": "quickstart",
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": -1,
-      "list": []
-    }
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "auto",
+    "tabSize": 2
   },
-  "simulatorPluginLibVersion": {},
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "isGameTourist": false,
-  "editorSetting": {}
+  "simulatorPluginLibVersion": {}
 }
