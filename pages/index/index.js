@@ -17,7 +17,7 @@ Component({
     startTime: 0,
     btnText: "按住挑战 3 秒",
     elapsed: 0,
-    timeList: ['3S', '5S', '10S'],
+    timeList: ['3 秒', '5 秒', '10 秒'],
     timeIndex: 0,
     challengeSeconds: 3,
   },
