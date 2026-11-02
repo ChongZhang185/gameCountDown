@@ -61,3 +61,16 @@ page {
   font-size: 36rpx;
   border: none;
 }
+
+.time-btn {
+  margin-top: 60rpx;
+  width: 240rpx !important;
+  height: 72rpx !important;
+  line-height: 72rpx;
+  border-radius: 36rpx !important;
+  background-color: #07c160;
+  color: #fff;
+  font-size: 28rpx;
+  padding: 0;
+  border: none;
+}

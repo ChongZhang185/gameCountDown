@@ -6,6 +6,9 @@
       <view class="timer-container">
         <view class="timer-result {{showResult ? '' : 'hidden'}}">{{resultText}}</view>
         <button class="timer-btn" style="background-color: {{btnColor}};" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">{{btnText}}</button>
+        <picker mode="selector" range="{{timeList}}" value="{{timeIndex}}" bindchange="onTimeChange">
+          <button class="time-btn">选择时间</button>
+        </picker>
       </view>
     </view>
   </view>

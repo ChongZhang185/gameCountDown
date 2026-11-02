@@ -17,14 +17,26 @@ Component({
     startTime: 0,
     btnText: "按住挑战 3 秒",
     elapsed: 0,
+    timeList: ['3S', '5S', '10S'],
+    timeIndex: 0,
+    challengeSeconds: 3,
   },
   methods: {
+    onTimeChange(e) {
+      const index = Number(e.detail.value);
+      const challengeSeconds = parseInt(this.data.timeList[index], 10);
+      this.setData({
+        timeIndex: index,
+        challengeSeconds: challengeSeconds,
+        btnText: `按住挑战 ${challengeSeconds} 秒`,
+      });
+    },
     onTouchStart() {
       this.setData({
         btnColor: '#ff6b6b',
         startTime: Date.now(),
         showResult: true,
-        resultText: '3秒 后松开',
+        resultText: `${this.data.challengeSeconds}秒 后松开`,
         btnText: "计时中...",
       });
     },
@@ -38,7 +50,7 @@ Component({
         showResult: true,
         resultText: resultText,
         btnColor: defaultColor,
-        btnText: "按住计时",
+        btnText: `按住挑战 ${this.data.challengeSeconds} 秒`,
       });
       wx.showShareMenu({
         withShareTicket: true,
