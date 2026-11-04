@@ -24,6 +24,7 @@ Component({
     stopwatchRunning: false,
     stopwatchText: '00:00.00',
     stopwatchElapsed: 0,
+    stopwatchRecords: [],
   },
   lifetimes: {
     detached() {
@@ -81,6 +82,15 @@ Component({
         stopwatchRunning: false,
         stopwatchElapsed: 0,
         stopwatchText: '00:00.00',
+      });
+    },
+    onStopwatchRecord() {
+      const record = {
+        id: Date.now(),
+        value: this.data.stopwatchText,
+      };
+      this.setData({
+        stopwatchRecords: [record, ...this.data.stopwatchRecords],
       });
     },
     clearStopwatchTimer() {

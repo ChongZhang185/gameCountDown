@@ -75,28 +75,79 @@ page {
   border: none;
 }
 
-.stopwatch-container {
+.stopwatch-page {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
-  margin-top: -100px;
+  padding: 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .stopwatch-result {
+  flex-shrink: 0;
   font-size: 96rpx;
   font-weight: bold;
   color: #333;
   font-variant-numeric: tabular-nums;
-  margin-bottom: 80rpx;
+  padding: 40rpx 0;
+}
+
+.stopwatch-records {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 600rpx;
+  overflow-y: auto;
+}
+
+.stopwatch-record-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  margin-bottom: 16rpx;
+  border-radius: 16rpx;
+  background-color: #f7f7f7;
+}
+
+.stopwatch-record-index {
+  width: 48rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.stopwatch-record-value {
+  flex: 1;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  font-variant-numeric: tabular-nums;
+}
+
+.stopwatch-record-btn {
+  flex-shrink: 0;
+  margin-bottom: 30rpx;
+  width: 200rpx !important;
+  height: 76rpx !important;
+  line-height: 76rpx;
+  border-radius: 38rpx !important;
+  background-color: #07c160;
+  color: #fff;
+  font-size: 30rpx;
+  padding: 0;
+  border: none;
 }
 
 .stopwatch-actions {
+  flex-shrink: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-bottom: 20rpx;
 }
 
 .stopwatch-btn {

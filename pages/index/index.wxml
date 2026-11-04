@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
+<scroll-view class="scrollarea" scroll-y type="list" wx:if="{{activeTab === 'timer'}}">
   <view class="container">
-    <view class="userinfo" wx:if="{{activeTab === 'timer'}}">
+    <view class="userinfo">
       <view class="timer-container">
         <view class="timer-result {{showResult ? '' : 'hidden'}}">{{resultText}}</view>
         <button class="timer-btn" style="background-color: {{btnColor}};" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">{{btnText}}</button>
@@ -11,18 +11,23 @@
         </picker>
       </view>
     </view>
-
-    <view class="userinfo" wx:else>
-      <view class="stopwatch-container">
-        <view class="stopwatch-result">{{stopwatchText}}</view>
-        <view class="stopwatch-actions">
-          <button class="stopwatch-btn {{stopwatchRunning ? 'stopwatch-btn-pause' : ''}}" bindtap="onStopwatchToggle">{{stopwatchRunning ? '暂停' : '开始'}}</button>
-          <button class="stopwatch-btn stopwatch-btn-reset" bindtap="onStopwatchReset">重置</button>
-        </view>
-      </view>
-    </view>
   </view>
 </scroll-view>
+
+<view class="stopwatch-page" wx:else>
+  <view class="stopwatch-result">{{stopwatchText}}</view>
+  <scroll-view class="stopwatch-records" scroll-y>
+    <view class="stopwatch-record-item" wx:for="{{stopwatchRecords}}" wx:key="id">
+      <text class="stopwatch-record-index">{{index + 1}}</text>
+      <text class="stopwatch-record-value">{{item.value}}</text>
+    </view>
+  </scroll-view>
+  <button class="stopwatch-record-btn" bindtap="onStopwatchRecord">记录</button>
+  <view class="stopwatch-actions">
+    <button class="stopwatch-btn {{stopwatchRunning ? 'stopwatch-btn-pause' : ''}}" bindtap="onStopwatchToggle">{{stopwatchRunning ? '暂停' : '开始'}}</button>
+    <button class="stopwatch-btn stopwatch-btn-reset" bindtap="onStopwatchReset">重置</button>
+  </view>
+</view>
 
 <view class="tabbar">
   <view class="tabbar-item {{activeTab === 'timer' ? 'tabbar-item-active' : ''}}" bindtap="onTabChange" data-tab="timer">
