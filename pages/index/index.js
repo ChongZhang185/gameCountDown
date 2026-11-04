@@ -20,8 +20,75 @@ Component({
     timeList: ['3 秒', '5 秒', '10 秒'],
     timeIndex: 0,
     challengeSeconds: 3,
+    activeTab: 'timer',
+    stopwatchRunning: false,
+    stopwatchText: '00:00.00',
+    stopwatchElapsed: 0,
+  },
+  lifetimes: {
+    detached() {
+      this.clearStopwatchTimer();
+    },
   },
   methods: {
+    onTabChange(e) {
+      const tab = e.currentTarget.dataset.tab;
+      if (tab === this.data.activeTab) {
+        return;
+      }
+      this.setData({ activeTab: tab });
+    },
+    formatStopwatch(ms) {
+      const total = Math.max(0, ms);
+      const minutes = Math.floor(total / 60000);
+      const seconds = Math.floor((total % 60000) / 1000);
+      const centiseconds = Math.floor((total % 1000) / 10);
+      const pad = (n) => (n < 10 ? '0' + n : '' + n);
+      return `${pad(minutes)}:${pad(seconds)}.${pad(centiseconds)}`;
+    },
+    onStopwatchToggle() {
+      if (this.data.stopwatchRunning) {
+        this.pauseStopwatch();
+      } else {
+        this.startStopwatch();
+      }
+    },
+    startStopwatch() {
+      const startTime = Date.now() - this.data.stopwatchElapsed;
+      this.stopwatchStartTime = startTime;
+      this.setData({ stopwatchRunning: true });
+      this.stopwatchTimer = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        this.setData({
+          stopwatchElapsed: elapsed,
+          stopwatchText: this.formatStopwatch(elapsed),
+        });
+      }, 10);
+    },
+    pauseStopwatch() {
+      this.clearStopwatchTimer();
+      const elapsed = Date.now() - this.stopwatchStartTime;
+      this.setData({
+        stopwatchRunning: false,
+        stopwatchElapsed: elapsed,
+        stopwatchText: this.formatStopwatch(elapsed),
+      });
+    },
+    onStopwatchReset() {
+      this.clearStopwatchTimer();
+      this.stopwatchStartTime = 0;
+      this.setData({
+        stopwatchRunning: false,
+        stopwatchElapsed: 0,
+        stopwatchText: '00:00.00',
+      });
+    },
+    clearStopwatchTimer() {
+      if (this.stopwatchTimer) {
+        clearInterval(this.stopwatchTimer);
+        this.stopwatchTimer = null;
+      }
+    },
     onTimeChange(e) {
       const index = Number(e.detail.value);
       const challengeSeconds = parseInt(this.data.timeList[index], 10);

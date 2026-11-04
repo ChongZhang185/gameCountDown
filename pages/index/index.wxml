@@ -2,7 +2,7 @@
 <navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
-    <view class="userinfo">
+    <view class="userinfo" wx:if="{{activeTab === 'timer'}}">
       <view class="timer-container">
         <view class="timer-result {{showResult ? '' : 'hidden'}}">{{resultText}}</view>
         <button class="timer-btn" style="background-color: {{btnColor}};" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">{{btnText}}</button>
@@ -11,5 +11,26 @@
         </picker>
       </view>
     </view>
+
+    <view class="userinfo" wx:else>
+      <view class="stopwatch-container">
+        <view class="stopwatch-result">{{stopwatchText}}</view>
+        <view class="stopwatch-actions">
+          <button class="stopwatch-btn {{stopwatchRunning ? 'stopwatch-btn-pause' : ''}}" bindtap="onStopwatchToggle">{{stopwatchRunning ? '暂停' : '开始'}}</button>
+          <button class="stopwatch-btn stopwatch-btn-reset" bindtap="onStopwatchReset">重置</button>
+        </view>
+      </view>
+    </view>
   </view>
 </scroll-view>
+
+<view class="tabbar">
+  <view class="tabbar-item {{activeTab === 'timer' ? 'tabbar-item-active' : ''}}" bindtap="onTabChange" data-tab="timer">
+    <text class="tabbar-icon">⏱</text>
+    <text class="tabbar-text">计时</text>
+  </view>
+  <view class="tabbar-item {{activeTab === 'stopwatch' ? 'tabbar-item-active' : ''}}" bindtap="onTabChange" data-tab="stopwatch">
+    <text class="tabbar-icon">⏲</text>
+    <text class="tabbar-text">秒表</text>
+  </view>
+</view>
