@@ -85,12 +85,19 @@ Component({
       });
     },
     onStopwatchRecord() {
+      if (!this.data.stopwatchRunning && !this.data.stopwatchElapsed) {
+        wx.showToast({
+          title: '请先点击开始计时',
+          icon: 'none',
+        });
+        return;
+      }
       const record = {
         id: Date.now(),
         value: this.data.stopwatchText,
       };
       this.setData({
-        stopwatchRecords: [record, ...this.data.stopwatchRecords],
+        stopwatchRecords: [...this.data.stopwatchRecords, record],
       });
     },
     clearStopwatchTimer() {

@@ -130,13 +130,13 @@ page {
 .stopwatch-record-btn {
   flex-shrink: 0;
   margin-bottom: 30rpx;
-  width: 200rpx !important;
-  height: 76rpx !important;
+  width: 480rpx !important;
+  height: 80rpx !important;
   line-height: 76rpx;
   border-radius: 38rpx !important;
   background-color: #07c160;
   color: #fff;
-  font-size: 30rpx;
+  font-size: 40rpx;
   padding: 0;
   border: none;
 }
@@ -146,8 +146,10 @@ page {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding-bottom: 20rpx;
+  width: 480rpx;
+  box-sizing: border-box;
 }
 
 .stopwatch-btn {
@@ -160,7 +162,6 @@ page {
   font-size: 32rpx;
   padding: 0;
   border: none;
-  margin: 0 20rpx;
 }
 
 .stopwatch-btn-pause {
