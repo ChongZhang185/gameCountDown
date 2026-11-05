@@ -97,7 +97,13 @@ Component({
         value: this.data.stopwatchText,
       };
       this.setData({
-        stopwatchRecords: [...this.data.stopwatchRecords, record],
+        stopwatchRecords: [record, ...this.data.stopwatchRecords],
+      });
+    },
+    onStopwatchDelete(e) {
+      const id = e.currentTarget.dataset.id;
+      this.setData({
+        stopwatchRecords: this.data.stopwatchRecords.filter((item) => item.id !== id),
       });
     },
     clearStopwatchTimer() {
