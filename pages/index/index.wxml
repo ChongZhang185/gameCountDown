@@ -23,7 +23,9 @@
       <button class="stopwatch-record-delete" hover-class="stopwatch-record-delete-hover" catchtap="onStopwatchDelete" data-id="{{item.id}}">删除</button>
     </view>
   </scroll-view>
+  
   <button class="stopwatch-record-btn" hover-class="stopwatch-record-btn-hover" bindtap="onStopwatchRecord">记录</button>
+  
   <view class="stopwatch-actions">
     <button class="stopwatch-btn {{stopwatchRunning ? 'stopwatch-btn-pause' : ''}}" bindtap="onStopwatchToggle">{{stopwatchRunning ? '暂停' : '开始'}}</button>
     <button class="stopwatch-btn stopwatch-btn-reset" bindtap="onStopwatchReset">重置</button>
