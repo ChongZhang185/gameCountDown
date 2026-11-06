@@ -148,13 +148,13 @@ page {
 .stopwatch-record-btn {
   flex-shrink: 0;
   margin-bottom: 30rpx;
-  width: 480rpx !important;
-  height: 480rpx !important;
-  line-height: 480rpx;
+  width: 300rpx !important;
+  height: 300rpx !important;
+  line-height: 300rpx;
   border-radius: 50% !important;
   background-color: #07c160;
   color: #fff;
-  font-size: 50rpx;
+  font-size: 40rpx;
   padding: 0;
   border: none;
 }
